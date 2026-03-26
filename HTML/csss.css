@@ -1,0 +1,25 @@
+h6{
+    color: aqua;
+}
+
+p{
+    color: black;
+}
+button{
+    color: aquamarine;
+    height: 12;
+    width: 10;
+    background-color: blue;
+}
+body{
+    background-color:pink;
+}
+.box{
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    color: blue;
+    background-color: skyblue;
+    margin: 5px;
+
+}
