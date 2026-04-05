@@ -51,11 +51,15 @@
 
 
 
-function getData(dataId){
-    console.log(dataId);
-    setTimeout(()=>{
-        console.log("Data fetched");
-    },2000)
-}
+//function getData(dataId){
+//    console.log(dataId);
+//    setTimeout(()=>{
+//        console.log("Data fetched");
+//    },2000)
+//}
+
+//promises
+
+
 
 
