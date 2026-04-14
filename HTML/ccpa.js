@@ -60,6 +60,137 @@
 
 //promises
 
+/***
+ Promise is for "eventual" completion of take. It is an
+ object in JS
+ it is a solution to callback hell.
+
+ sysntax:
+ let promise = new Promise(function(resolve,reject){}
+ function with 2 handlers
+ promise:
+ 1.pending -> the result is undefined
+ 2.fulfilled -> the result is a value(Resolved)
+ 3.rejected -> the result is an error object 
+ */
+
+
+ //let promise = new Promise((resolve,reject)=>{
+ //   console.log("Promise is pending");
+ //   //resolve(123);
+ //   reject("Some error");
+ //})
+
+/**function getData(dataId,getNextData){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            console.log("data",dataId);
+            resolve("success");
+            if(getNextData){
+                getNextData();
+            }
+        },5000)
+    })
+}*/
+
+
+//for fullfilled we use promise.then((res)=>{})
+    //for rejected we use promise.catch((err)=>{})
+
+//const getPromise=()=>{
+//    return new Promise((resolve,reject)=>{
+//        console.log("promise");
+//        reject("error");
+//    });
+//};
+//let promise = getPromise();
+//promise.then((res)=>{
+//    console.log("resolved",res);
+//});
+//promise.catch((err)=>{
+//    console.log("rejected",err);
+//});
+
+
+//promise chaining
+
+//function asyncFunc(dataId){
+//    return new Promise((resolve,reject)=>{
+//        setTimeout(()=>{
+//            console.log("Async function", dataId);
+//            resolve("success");
+//        },5000);
+//    });
+//};
+//
+/**let promise = asyncFunc();
+asyncFunc(123).then((res)=>{
+    console.log("resolved",res);
+    asyncFunc(2).then(()=>{
+        console.log("second async function");
+    })
+});
+promise.catch((err)=>{
+    console.log("rejected",err);
+})**/
+
+//asyncFunc(1)
+//   .then((res)=>{
+//    return asyncFunc(2);
+//   })
+//   .then((res)=>{
+//    return asyncFunc(3);
+//   })
+//   .then((res)=>{
+//    console.log("All async functions completed");
+//   });
+
+
+//Async-Await
 
 
 
+//Async function is always return a promise
+
+/**async function hello(){
+    console.log("hello");
+}
+**/
+
+
+//await pauses the execution of its surrounding async function until the promise is settled
+/**async function getData(){
+    await api();
+    await api();
+}
+function api(){
+    return new Promise((resolve,reject)=>{
+        console.log("API called");
+        setTimeout(()=>{
+            resolve("API response");
+        },5000);
+    });
+}**/
+
+
+//async-await 
+
+
+function getData(dataId){
+    return new Promise((resolve,reject)=>{
+        
+        setTimeout(()=>{
+            console.log("called");
+            resolve("data",dataId);
+        },1000);
+    });
+}
+
+(async function getAlldata(){
+    await getData(1);
+    await getData(2);
+    await getData(3);
+    console.log("All data fetched");
+}());  //to define like this we use IIFE to call the function
+
+//uses IIFE immediately invoked function expression
